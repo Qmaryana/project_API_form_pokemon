@@ -1,0 +1,26 @@
+ul {
+  display: flex;
+  /* מסדר את הדף לפי הגודל חלונית*/
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  /*Padding is the space inside an element*/
+  list-style-type: none;
+  text-align: center;
+}
+
+li a {
+  display: block;
+  color: #202020;
+  padding: 14px 16px;
+  text-decoration: solid;
+  transition: background-color 0.3s ease;
+}
+
+li.active {
+  background-color: #ffff00;
+}
+
+li a:hover {
+  background-color: #ffff6e;
+}

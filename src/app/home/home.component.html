@@ -1,0 +1,17 @@
+<h1>Welcom To the Pokemon Store</h1>
+
+<div>
+  <div class="pokemon-list">
+    <div *ngFor="let pokemon of pokemonList" class="pokemon-card">  <!--מערך פוקימונים-->
+       <!--מציג תמונה ,מקור תמונה. משתמש בפונקציה שיצרנו שיזהה את הפוקימונים -->
+      <img [src]="'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + getPokemonId(pokemon.url) + '.png'" alt="{{ pokemon.name }}" />
+      <p>{{ pokemon.name }}</p> 
+    </div>
+  </div>
+  <div class="center"> 
+  <div class="navigation-buttons">
+    <button (click)="onPrev()" [disabled]="!prevLink">Previous</button> <!-- [disabled]: משמשת להשבתת רכיב.--> 
+    <button (click)="onNext()" [disabled]="!nextLink">Next</button> <!--(click): משמשת להוספת אירוע לחיצה לרכיב.-->
+    </div>
+  </div>
+</div>

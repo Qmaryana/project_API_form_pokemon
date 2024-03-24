@@ -1,0 +1,39 @@
+<h1>Enter your details to purchase</h1>
+
+<form class="form-container" (ngSubmit)="onSubmit(form)" #form="ngForm"> <!--ngsumbit פונקציה שמורה מאנגולר-->
+<!--(ngSubmit)="onSubmit(form)"-->
+<!--למעלה זה הפונקציה שיצרנו והמשתנה שבסוגרים אליו הולך כל המידע של הטופס-->
+<!--#form="ngForm"-->
+<!--מה שלמעלה הוא מעביר את המשתנה פורם כחבילה אחת לאנגולר, לוקח את המשתנים של הטופס ומעביר אותם.-->
+  <input class="fStyle" type="text" placeholder="Enter your name" ngModel name="name-input" required #nameInput='ngModel'/>
+  <p *ngIf="nameInput.untouched || nameInput.invalid" [ngStyle]="{'color':'red'}">Name cannot be empty</p>
+  <br>
+
+  <input class="fStyle" type="text" placeholder="Enter your email" ngModel name="email-input" required #emailInput='ngModel'/>
+  <p *ngIf="emailInput.invalid" [ngStyle]="{'color': 'red'}">Need @</p>
+  <br>
+
+  <div class="input-group" ngModelGroup="userDetails" #userPhone="ngModelGroup">
+  <input class="fStyle" type="number" placeholder="phone prefix" ngModel name="prefix-input" required/>
+  <input class="fStyle" type="number" placeholder="Enter your phone number" ngModel name="phone-input" required/>
+  <p *ngIf="userPhone.invalid" [ngStyle]="{'color':'red'}">Invalid phone number</p>
+  </div> 
+
+  <input class="fStyle" type="number" placeholder="Enter your credit card number" ngModel name="card-input" required #cardInput='ngModel'/>
+  <p *ngIf="cardInput.invalid" [ngStyle]="{'color':'red'}">Invalid card number</p>
+
+  <br>
+  <button type="Pay" [disabled]="form.invalid" [style.cursor]="form.invalid ? 'not-allowed' : 'pointer'">Pay</button>
+
+  <div *ngIf="form.submitted && form.valid">
+    <h2>Thank you!</h2>
+    <img src = "https://i.pinimg.com/564x/7c/da/f3/7cdaf39724851fa38a078ab207c3a1af.jpg" />
+  </div>
+
+  </form>
+
+<!--ngModel name-->
+<!--משייך את האינפוט של הטופס לטופס, ה קבוכ צריך לרשום כל פעם עוזר לנו בתנאים של מה שצריך להיות בטופס-->
+
+<!--required #nameInput='ngModel'-->
+<!--חייב למלא את השדה הזה-->
